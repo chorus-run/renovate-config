@@ -1,0 +1,18 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Chorus default for every product repository: grouped weekly update PRs for the owner to review, never automerged.",
+  "extends": [
+    "config:recommended",
+    "schedule:weekly",
+    "group:allNonMajor",
+    ":maintainLockFilesWeekly"
+  ],
+  "timezone": "America/Toronto",
+  "minimumReleaseAge": "3 days",
+  "prConcurrentLimit": 5,
+  "automerge": false,
+  "vulnerabilityAlerts": {
+    "schedule": ["at any time"],
+    "minimumReleaseAge": null
+  }
+}
