@@ -24,6 +24,8 @@ What it sets, all from Renovate's built-in presets:
 - `:maintainLockFilesWeekly`: a weekly lockfile refresh.
 - `minimumReleaseAge` 3 days, at most 5 open PRs, never automerged: every PR waits for the owner's review.
 - Security updates skip the schedule and the release-age wait.
+- `branchPrefix` `chore/renovate-`: update branches are chore branches, which the Chorus merge gate accepts without a
+  work item.
 
 Check a change with Renovate's validator before pushing:
 

@@ -12,7 +12,10 @@
   "prConcurrentLimit": 5,
   "automerge": false,
   "vulnerabilityAlerts": {
-    "schedule": ["at any time"],
+    "schedule": [
+      "at any time"
+    ],
     "minimumReleaseAge": null
-  }
+  },
+  "branchPrefix": "chore/renovate-"
 }
