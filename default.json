@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Chorus default for every product repository: grouped weekly update PRs for the owner to review, never automerged.",
+  "description": "Chorus default for every product repository: grouped weekly update PRs; patch updates and non-major dev dependency updates automerge once status checks pass, everything else waits for the owner's review.",
   "extends": [
     "config:recommended",
     "schedule:weekly",
@@ -11,6 +11,31 @@
   "minimumReleaseAge": "3 days",
   "prConcurrentLimit": 5,
   "automerge": false,
+  "platformAutomerge": false,
+  "packageRules": [
+    {
+      "description": "Patch updates: one PR, automerged once status checks pass.",
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "groupName": "all patch dependencies",
+      "groupSlug": "all-patch",
+      "automerge": true
+    },
+    {
+      "description": "Non-major dev dependency updates: one PR, automerged once status checks pass.",
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "all non-major dev dependencies",
+      "groupSlug": "all-dev-non-major",
+      "automerge": true
+    }
+  ],
   "vulnerabilityAlerts": {
     "schedule": [
       "at any time"

@@ -22,7 +22,7 @@ What it sets, all from Renovate's built-in presets:
   ([schedule presets](https://docs.renovatebot.com/presets-schedule/)).
 - `group:allNonMajor`: one PR for every minor and patch update; each major update gets its own PR.
 - `:maintainLockFilesWeekly`: a weekly lockfile refresh.
-- `minimumReleaseAge` 3 days, at most 5 open PRs, never automerged: every PR waits for the owner's review.
+- `minimumReleaseAge` 3 days, at most 5 open PRs. Patch updates and non-major dev dependency updates automerge once status checks pass (Chorus `watch` posts the `chorus/check` status from a local run; with no status, nothing merges). Everything else waits for the owner's review.
 - Security updates skip the schedule and the release-age wait.
 - `branchPrefix` `chore/renovate-`: update branches are chore branches, which the Chorus merge gate accepts without a
   work item.
